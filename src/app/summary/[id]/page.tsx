@@ -2,6 +2,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { dummyVideos } from "@/lib/data/dummyVideos";
 
+export async function generateStaticParams() {
+  return Object.keys(dummyVideos).map((id) => ({
+    id,
+  }));
+}
+
 export default async function SummaryPage({
   params,
 }: {
